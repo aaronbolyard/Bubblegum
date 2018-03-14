@@ -69,7 +69,7 @@ void bg_insert_path_close(
 	int index,
 	int flags);
 void bg_clear_path(BUBBLEGUM_PATH *path);
-void bg_remove_command(BUBBLEGUM_PATH *path, int index);
+void bg_remove_path_command(BUBBLEGUM_PATH *path, int index);
 
 enum BUBBLEGUM_COMMAND_TYPE
 {
@@ -78,7 +78,8 @@ enum BUBBLEGUM_COMMAND_TYPE
 	BUBBLEGUM_COMMAND_TYPE_LINE,
 	BUBBLEGUM_COMMAND_TYPE_QUADRATIC_CURVE,
 	BUBBLEGUM_COMMAND_TYPE_CUBIC_CURVE,
-	BUBBLEGUM_COMMAND_TYPE_CLOSE
+	BUBBLEGUM_COMMAND_TYPE_CLOSE,
+	BUBBLEGUM_COMMAND_TYPE_MAX
 };
 
 int bg_get_num_path_commands(BUBBLEGUM_PATH *path);
