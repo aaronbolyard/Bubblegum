@@ -26,8 +26,10 @@ enum BUBBLEGUM_RENDERER
 #endif
 
 #ifdef BUBBLEGUM_RENDERER_DIRECTX
-	BUBBLEGUM_RENDERER_DIRECTX
+	BUBBLEGUM_RENDERER_DIRECTX,
 #endif
+
+	BUBBLEGUM_RENDERER_MAX
 };
 
 typedef void * (*bg_malloc_func)(size_t);
@@ -46,6 +48,9 @@ enum BUBBLEGUM_ERROR
 	/// Allocation failed.
 	BUBBLEGUM_ERROR_OUT_OF_MEMORY,
 
+	/// An argument was invalid.
+	BUBBLEGUM_ERROR_INVALID_ARGUMENT,
+
 	/// The method is not-yet-implemented.
 	BUBBLEGUM_ERROR_NOT_YET_IMPLEMENTED
 };
@@ -56,8 +61,8 @@ typedef struct BUBBLEGUM_CONTEXT BUBBLEGUM_CONTEXT;
 ///
 /// If the provided allocation functions are NULL, uses system defaults.
 ///
-/// Returns the BUBBLEGUM_CONTEXT on success, or NULL on failure. To see why the
-/// function failed, call bg_get_error.
+/// Returns the BUBBLEGUM_CONTEXT on success, or NULL on failure. Failure occurs
+/// when 'alloc_func' returns NULL.
 BUBBLEGUM_CONTEXT * bg_create_context(bg_malloc_func alloc_func, bg_free_func free_func);
 
 /// Destroys the provided context.
@@ -74,7 +79,7 @@ void bg_destroy_context(BUBBLEGUM_CONTEXT *context);
 /// Higher values result in higher quality output.
 ///
 /// The term parameter is clamped to at least 1.
-void bg_set_context_tess_term(BUBBLEGUM_CONTEXT *context, int term);
+void bg_set_context_tess_term(BUBBLEGUM_CONTEXT *context, int value);
 
 /// Gets the tessellation term, or tess term.
 ///
@@ -90,20 +95,36 @@ void bg_set_context_renderer(BUBBLEGUM_CONTEXT *context, int value);
 /// Gets the renderer used by the Bubblegum context.
 int bg_get_context_renderer(BUBBLEGUM_CONTEXT *context);
 
-/// Gets the result of the last Bubblegum function call on the current thread.
-int bg_get_error();
+/// Gets the result of the last Bubblegum function call.
+///
+/// Only functions that may modify state set errors. For example,
+/// bg_set_context_renderer modifiers the error, but bg_get_context_renderer
+/// does not.
+///
+/// Thus, if an error is set in bg_set_context_renderer, and then
+/// bg_get_context_renderer is called, the error from bg_set_context_renderer
+/// will still be returned. However, if bg_create_path was called, the error
+/// will be modified (either cleared or set to a different error, whichever
+/// appropriate).
+///
+/// In short, getters do not modify error state. Every other function does.
+int bg_get_error(BUBBLEGUM_CONTEXT *context);
 
 /// Returns bg_get_error() != BUBBLEGUM_ERROR_NONE.
-bool bg_has_error();
+bool bg_has_error(BUBBLEGUM_CONTEXT *context);
 
 /// Sets the current Bubblegum error.
 ///
 /// To clear an error, call bg_acknowledge_error.
 ///
 /// Generally, this shouldn't be called...
-void bg_set_error(int error);
+void bg_set_error(BUBBLEGUM_CONTEXT *context, int value);
 
 /// Acknowledges an error by clearing the error flag.
-void bg_acknowledge_error();
+///
+/// Has no effect if no error is set.
+///
+/// Returns the previous error.
+int bg_acknowledge_error(BUBBLEGUM_CONTEXT *context);
 
 #endif
