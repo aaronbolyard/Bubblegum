@@ -18,32 +18,47 @@
 typedef struct BUBBLEGUM_PATTERN_BRUSH BUBBLEGUM_PATTERN_BRUSH;
 
 /// Creates a BUBBLEGUM_PATTERN_BRUSH for the provided context.
-BUBBLEGUM_PATTERN_BRUSH * bg_create_pattern_brush(BUBBLEGUM_CONTEXT *context);
+BUBBLEGUM_API
+BUBBLEGUM_API BUBBLEGUM_PATTERN_BRUSH * bg_create_pattern_brush(BUBBLEGUM_CONTEXT *context);
 
 /// Converts a BUBBLEGUM_BRUSH to a BUBBLEGUM_PATTERN_BRUSH.
 ///
 /// If the conversion fails (i.e., the brush is not a linear gradient), this
 /// method returns NULL.
-BUBBLEGUM_PATTERN_BRUSH * bg_to_pattern_brush(
+BUBBLEGUM_API
+BUBBLEGUM_API BUBBLEGUM_PATTERN_BRUSH * bg_to_pattern_brush(
 	BUBBLEGUM_BRUSH *brush);
 
 /// Converts a BUBBLEGUM_PATTERN_BRUSH to a BUBBLEGUM_BRUSH.
-BUBBLEGUM_BRUSH * bg_from_pattern_brush(BUBBLEGUM_PATTERN_BRUSH *brush);
+BUBBLEGUM_API
+BUBBLEGUM_API BUBBLEGUM_BRUSH * bg_from_pattern_brush(BUBBLEGUM_PATTERN_BRUSH *brush);
 
-void bg_set_pattern_brush_pattern(
+BUBBLEGUM_API
+BUBBLEGUM_API void bg_set_pattern_brush_pattern(
 	BUBBLEGUM_PATTERN_BRUSH *brush,
 	BUBBLEGUM_CANVAS *canvas);
-BUBBLEGUM_CANVAS * bg_get_pattern_brush_pattern(BUBBLEGUM_PATTERN_BRUSH *brush);
+BUBBLEGUM_API
+BUBBLEGUM_API BUBBLEGUM_CANVAS * bg_get_pattern_brush_pattern(BUBBLEGUM_PATTERN_BRUSH *brush);
 
-void bg_set_pattern_brush_rotation(BUBBLEGUM_PATTERN_BRUSH* brush, float value);
-float bg_get_pattern_brush_rotation(BUBBLEGUM_PATTERN_BRUSH* brush);
-void bg_set_pattern_brush_offset_x(BUBBLEGUM_PATTERN_BRUSH* brush, float value);
-float bg_get_pattern_brush_offset_x(BUBBLEGUM_PATTERN_BRUSH* brush);
-void bg_set_pattern_brush_offset_y(BUBBLEGUM_PATTERN_BRUSH* brush, float value);
-float bg_get_pattern_brush_offset_y(BUBBLEGUM_PATTERN_BRUSH* brush);
-void bg_set_pattern_brush_scale_x(BUBBLEGUM_PATTERN_BRUSH* brush, float value);
-float bg_get_pattern_brush_scale_x(BUBBLEGUM_PATTERN_BRUSH* brush);
-void bg_set_pattern_brush_scale_y(BUBBLEGUM_PATTERN_BRUSH* brush, float value);
-float bg_get_pattern_brush_scale_y(BUBBLEGUM_PATTERN_BRUSH* brush);
+BUBBLEGUM_API
+BUBBLEGUM_API void bg_set_pattern_brush_rotation(BUBBLEGUM_PATTERN_BRUSH* brush, float value);
+BUBBLEGUM_API
+BUBBLEGUM_API float bg_get_pattern_brush_rotation(BUBBLEGUM_PATTERN_BRUSH* brush);
+BUBBLEGUM_API
+BUBBLEGUM_API void bg_set_pattern_brush_offset_x(BUBBLEGUM_PATTERN_BRUSH* brush, float value);
+BUBBLEGUM_API
+BUBBLEGUM_API float bg_get_pattern_brush_offset_x(BUBBLEGUM_PATTERN_BRUSH* brush);
+BUBBLEGUM_API
+BUBBLEGUM_API void bg_set_pattern_brush_offset_y(BUBBLEGUM_PATTERN_BRUSH* brush, float value);
+BUBBLEGUM_API
+BUBBLEGUM_API float bg_get_pattern_brush_offset_y(BUBBLEGUM_PATTERN_BRUSH* brush);
+BUBBLEGUM_API
+BUBBLEGUM_API void bg_set_pattern_brush_scale_x(BUBBLEGUM_PATTERN_BRUSH* brush, float value);
+BUBBLEGUM_API
+BUBBLEGUM_API float bg_get_pattern_brush_scale_x(BUBBLEGUM_PATTERN_BRUSH* brush);
+BUBBLEGUM_API
+BUBBLEGUM_API void bg_set_pattern_brush_scale_y(BUBBLEGUM_PATTERN_BRUSH* brush, float value);
+BUBBLEGUM_API
+BUBBLEGUM_API float bg_get_pattern_brush_scale_y(BUBBLEGUM_PATTERN_BRUSH* brush);
 
 #endif

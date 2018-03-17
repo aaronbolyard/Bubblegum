@@ -21,23 +21,28 @@ typedef struct BUBBLEGUM_SOLID_BRUSH BUBBLEGUM_SOLID_BRUSH;
 /// The color is set white (1, 1, 1, 1).
 ///
 /// Returns the brush on success, or NULL on failure.
-BUBBLEGUM_SOLID_BRUSH * bg_create_solid_brush(BUBBLEGUM_CONTEXT *context);
+BUBBLEGUM_API
+BUBBLEGUM_API BUBBLEGUM_SOLID_BRUSH * bg_create_solid_brush(BUBBLEGUM_CONTEXT *context);
 
 /// Converts a BUBBLEGUM_BRUSH to a BUBBLEGUM_SOLID_BRUSH.
 ///
 /// If the conversion fails (i.e., the brush is not a linear gradient), this
 /// method returns NULL.
-BUBBLEGUM_SOLID_BRUSH * bg_to_solid_brush(BUBBLEGUM_BRUSH *brush);
+BUBBLEGUM_API
+BUBBLEGUM_API BUBBLEGUM_SOLID_BRUSH * bg_to_solid_brush(BUBBLEGUM_BRUSH *brush);
 
 /// Converts the BUBBLEGUM_SOLID_BRUSH to a BUBBLEGUM_BRUSH
-BUBBLEGUM_BRUSH * bg_from_solid_brush(BUBBLEGUM_SOLID_BRUSH *brush);
+BUBBLEGUM_API
+BUBBLEGUM_API BUBBLEGUM_BRUSH * bg_from_solid_brush(BUBBLEGUM_SOLID_BRUSH *brush);
 
 /// Sets the brush color.
-void bg_set_solid_brush_color(
+BUBBLEGUM_API
+BUBBLEGUM_API void bg_set_solid_brush_color(
 	BUBBLEGUM_SOLID_BRUSH *brush,
 	const BUBBLEGUM_SOLID_BRUSH *color);
 
 /// Gets the brush color.
-BUBBLEGUM_COLOR bg_get_solid_brush_color(BUBBLEGUM_SOLID_BRUSH *brush)
+BUBBLEGUM_API
+BUBBLEGUM_API BUBBLEGUM_COLOR bg_get_solid_brush_color(BUBBLEGUM_SOLID_BRUSH *brush)
 
 #endif

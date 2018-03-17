@@ -25,7 +25,7 @@ bg_free(void* pointer)
 	free(pointer);
 }
 
-BUBBLEGUM_CONTEXT *
+BUBBLEGUM_API BUBBLEGUM_CONTEXT *
 bg_create_context(bg_malloc_func alloc_func, bg_free_func free_func)
 {
 	BUBBLEGUM_CONTEXT *context = NULL;
@@ -57,7 +57,7 @@ bg_create_context(bg_malloc_func alloc_func, bg_free_func free_func)
 	return context;
 }
 
-void
+BUBBLEGUM_API void
 bg_destroy_context(BUBBLEGUM_CONTEXT *context)
 {
 	if (context != NULL)
@@ -66,7 +66,7 @@ bg_destroy_context(BUBBLEGUM_CONTEXT *context)
 	}
 }
 
-void
+BUBBLEGUM_API void
 bg_set_context_tess_term(BUBBLEGUM_CONTEXT *context, int value)
 {
 	assert(context != NULL && "bubblegum context is null");
@@ -84,7 +84,7 @@ bg_set_context_tess_term(BUBBLEGUM_CONTEXT *context, int value)
 	}
 }
 
-int
+BUBBLEGUM_API int
 bg_get_context_tess_term(BUBBLEGUM_CONTEXT *context, int value)
 {
 	assert(context != NULL && "bubblegum context is null");
@@ -98,7 +98,7 @@ bg_get_context_tess_term(BUBBLEGUM_CONTEXT *context, int value)
 	return 0;
 }
 
-void
+BUBBLEGUM_API void
 bg_set_context_renderer(BUBBLEGUM_CONTEXT *context, int value)
 {
 	assert(context != NULL && "bubblegum context is null");
@@ -117,7 +117,7 @@ bg_set_context_renderer(BUBBLEGUM_CONTEXT *context, int value)
 	}
 }
 
-int
+BUBBLEGUM_API int
 bg_get_context_renderer(BUBBLEGUM_CONTEXT *context)
 {
 	assert(context != NULL && "bubblegum context is null");
@@ -132,7 +132,7 @@ bg_get_context_renderer(BUBBLEGUM_CONTEXT *context)
 	return BUBBLEGUM_RENDERER_NONE;
 }
 
-int
+BUBBLEGUM_API int
 bg_get_error(BUBBLEGUM_CONTEXT *context)
 {
 	assert(context != NULL && "bubblegum context is null");
@@ -145,7 +145,7 @@ bg_get_error(BUBBLEGUM_CONTEXT *context)
 	return BUBBLEGUM_ERROR_INVALID_ARGUMENT;
 }
 
-bool
+BUBBLEGUM_API bool
 bg_has_error(BUBBLEGUM_CONTEXT *context)
 {
 	assert(context != NULL && "bubblegum context is null");
@@ -158,7 +158,7 @@ bg_has_error(BUBBLEGUM_CONTEXT *context)
 	return true;
 }
 
-void
+BUBBLEGUM_API void
 bg_set_error(BUBBLEGUM_CONTEXT *context, int value)
 {
 	assert(context != NULL && "bubblegum context is null");
@@ -169,7 +169,7 @@ bg_set_error(BUBBLEGUM_CONTEXT *context, int value)
 	}
 }
 
-int
+BUBBLEGUM_API int
 bg_acknowledge_error(BUBBLEGUM_CONTEXT *context)
 {
 	assert(context != NULL && "bubblegum context is null");

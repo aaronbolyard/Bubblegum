@@ -13,7 +13,7 @@
 #include "bubblegum/bubblegum.h"
 #include "internal/brush.h"
 
-int
+BUBBLEGUM_API int
 bg_get_brush_type(BUBBLEGUM_BRUSH *brush)
 {
 	assert(brush != NULL && "brush is null");
@@ -26,7 +26,7 @@ bg_get_brush_type(BUBBLEGUM_BRUSH *brush)
 	return brush->type;
 }
 
-void
+BUBBLEGUM_API void
 bg_destroy_brush(BUBBLEGUM_BRUSH *brush)
 {
 	if (brush->destructor != NULL)

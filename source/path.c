@@ -113,7 +113,7 @@ bg_insert_path_command(
 	return true;
 }
 
-void
+BUBBLEGUM_API void
 bg_remove_path_command(BUBBLEGUM_PATH *path, int index)
 {
 	assert(path != NULL && "path is NULL");
@@ -160,7 +160,7 @@ bg_remove_path_command(BUBBLEGUM_PATH *path, int index)
 	}
 }
 
-BUBBLEGUM_PATH *
+BUBBLEGUM_API BUBBLEGUM_PATH *
 bg_create_path(BUBBLEGUM_CONTEXT *context)
 {
 	assert(context != NULL && "context is null");
@@ -191,7 +191,7 @@ bg_create_path(BUBBLEGUM_CONTEXT *context)
 	return result;
 }
 
-void
+BUBBLEGUM_API void
 bg_destroy_path(BUBBLEGUM_PATH *path)
 {
 	if (path != NULL)
@@ -201,7 +201,7 @@ bg_destroy_path(BUBBLEGUM_PATH *path)
 	}
 }
 
-void
+BUBBLEGUM_API void
 bg_append_path_move(BUBBLEGUM_PATH *path, float x, float y, int flags)
 {
 	assert(path != NULL && "path is NULL");
@@ -214,7 +214,7 @@ bg_append_path_move(BUBBLEGUM_PATH *path, float x, float y, int flags)
 	bg_insert_path_move(path, path->commands_length, x, y, flags);
 }
 
-void
+BUBBLEGUM_API void
 bg_append_path_line(BUBBLEGUM_PATH *path, float x, float y, int flags)
 {
 	assert(path != NULL && "path is NULL");
@@ -227,7 +227,7 @@ bg_append_path_line(BUBBLEGUM_PATH *path, float x, float y, int flags)
 	bg_insert_path_line(path, path->commands_length, x, y, flags);
 }
 
-void
+BUBBLEGUM_API void
 bg_append_path_quadratic_curve(
 	BUBBLEGUM_PATH *path,
 	float anchor_x, float anchor_y
@@ -249,7 +249,7 @@ bg_append_path_quadratic_curve(
 		flags);
 }
 
-void
+BUBBLEGUM_API void
 bg_append_path_cubic_curve(
 	BUBBLEGUM_PATH *path,
 	float anchor1_x, float anchor1_y
@@ -273,7 +273,7 @@ bg_append_path_cubic_curve(
 		flags);
 }
 
-void
+BUBBLEGUM_API void
 bg_append_path_close(BUBBLEGUM_PATH *path, int flags)
 {
 	assert(path != NULL && "path is NULL");
@@ -286,7 +286,7 @@ bg_append_path_close(BUBBLEGUM_PATH *path, int flags)
 	bg_insert_path_close(path, path->commands_length, flags);
 }
 
-void
+BUBBLEGUM_API void
 bg_insert_path_move(BUBBLEGUM_PATH *path, int index, float x, float y, int flags)
 {
 	assert(path != NULL && "path is NULL");
@@ -321,7 +321,7 @@ bg_insert_path_move(BUBBLEGUM_PATH *path, int index, float x, float y, int flags
 	bg_insert_path_command(path, index, &command);
 }
 
-void
+BUBBLEGUM_API void
 bg_insert_path_line(BUBBLEGUM_PATH *path, float x, float y, int flags)
 {
 	assert(path != NULL && "path is NULL");
@@ -356,7 +356,7 @@ bg_insert_path_line(BUBBLEGUM_PATH *path, float x, float y, int flags)
 	bg_insert_path_command(path, index, &command);
 }
 
-void
+BUBBLEGUM_API void
 bg_insert_path_quadratic_curve(
 	BUBBLEGUM_PATH *path,
 	float anchor_x, float anchor_y,
@@ -397,7 +397,7 @@ bg_insert_path_quadratic_curve(
 	bg_insert_path_command(path, index, &command);
 }
 
-void
+BUBBLEGUM_API void
 bg_insert_path_cubic_curve(
 	BUBBLEGUM_PATH *path,
 	float anchor1_x, float anchor1_y,
@@ -441,7 +441,7 @@ bg_insert_path_cubic_curve(
 	bg_insert_path_command(path, index, &command);
 }
 
-void
+BUBBLEGUM_API void
 bg_insert_path_close(
 	BUBBLEGUM_PATH *path,
 	int index,
@@ -498,7 +498,7 @@ bg_insert_path_close(
 	bg_insert_path_command(path, index, &command);
 }
 
-void
+BUBBLEGUM_API void
 bg_clear_path(BUBBLEGUM_PATH *path)
 {
 	assert(path != NULL && "path is NULL");
@@ -510,7 +510,7 @@ bg_clear_path(BUBBLEGUM_PATH *path)
 	}
 }
 
-int
+BUBBLEGUM_API int
 bg_get_num_path_commands(BUBBLEGUM_PATH *path)
 {
 	assert(path != NULL && "path is NULL");
@@ -518,7 +518,7 @@ bg_get_num_path_commands(BUBBLEGUM_PATH *path)
 	return path->commands_length;
 }
 
-int
+BUBBLEGUM_API int
 bg_get_path_command_type(BUBBLEGUM_PATH *path, int command_index)
 {
 	assert(path != NULL && "path is NULL");
@@ -536,7 +536,7 @@ bg_get_path_command_type(BUBBLEGUM_PATH *path, int command_index)
 	return BUBBLE_COMMAND_TYPE_NONE;
 }
 
-float
+BUBBLEGUM_API float
 bg_get_path_command_x(BUBBLEGUM_PATH *path, int command_index, int x_index)
 {
 	assert(path != NULL && "path is NULL");
@@ -561,7 +561,7 @@ bg_get_path_command_x(BUBBLEGUM_PATH *path, int command_index, int x_index)
 #endif
 }
 
-float
+BUBBLEGUM_API float
 bg_get_path_command_y(BUBBLEGUM_PATH *path, int command_index, int y_index)
 {
 	assert(path != NULL && "path is NULL");
@@ -586,7 +586,7 @@ bg_get_path_command_y(BUBBLEGUM_PATH *path, int command_index, int y_index)
 #endif
 }
 
-int
+BUBBLEGUM_API int
 bg_get_path_command_flags(BUBBLEGUM_PATH *path, int command_index)
 {
 	assert(path != NULL && "path is NULL");

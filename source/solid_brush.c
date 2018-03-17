@@ -14,7 +14,7 @@
 #include "bubblegum/bubblegum.h"
 #include "bubblegum/solid_brush.h"
 
-BUBBLEGUM_SOLID_BRUSH *
+BUBBLEGUM_API BUBBLEGUM_SOLID_BRUSH *
 bg_create_solid_brush(BUBBLEGUM_CONTEXT *context)
 {
 	assert(context != NULL && "context is null");
@@ -47,7 +47,7 @@ bg_create_solid_brush(BUBBLEGUM_CONTEXT *context)
 	return result;
 }
 
-BUBBLEGUM_SOLID_BRUSH *
+BUBBLEGUM_API BUBBLEGUM_SOLID_BRUSH *
 bg_to_solid_brush(BUBBLEGUM_BRUSH *brush)
 {
 	assert(brush != NULL && "brush is null");
@@ -60,13 +60,13 @@ bg_to_solid_brush(BUBBLEGUM_BRUSH *brush)
 	return (BUBBLEGUM_SOLID_BRUSH *)brush;
 }
 
-BUBBLEGUM_BRUSH *
+BUBBLEGUM_API BUBBLEGUM_BRUSH *
 bg_from_solid_brush(BUBBLEGUM_SOLID_BRUSH *brush)
 {
 	return (BUBBLEGUM_BRUSH *)brush;
 }
 
-void
+BUBBLEGUM_API void
 bg_set_solid_brush_color(
 	BUBBLEGUM_SOLID_BRUSH *brush,
 	const BUBBLEGUM_SOLID_BRUSH *color)
@@ -80,7 +80,7 @@ bg_set_solid_brush_color(
 	}
 }
 
-BUBBLEGUM_COLOR
+BUBBLEGUM_API BUBBLEGUM_COLOR
 bg_get_solid_brush_color(BUBBLEGUM_SOLID_BRUSH *brush)
 {
 	assert(brush != NULL && "brush is null");

@@ -35,9 +35,11 @@ enum BUBBLEGUM_BRUSH_TYPE
 };
 
 /// Gets the BUBBLEGUM_BRUSH_TYPE of the provided brush.
-int bg_get_brush_type(BUBBLEGUM_BRUSH *brush);
+BUBBLEGUM_API
+BUBBLEGUM_API int bg_get_brush_type(BUBBLEGUM_BRUSH *brush);
 
 /// Destroys a brush.
-void bg_destroy_brush(BUBBLEGUM_BRUSH *brush);
+BUBBLEGUM_API
+BUBBLEGUM_API void bg_destroy_brush(BUBBLEGUM_BRUSH *brush);
 
 #endif

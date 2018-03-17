@@ -24,99 +24,124 @@ typedef struct BUBBLEGUM_CANVAS BUBBLEGUM_CANVAS;
 ///
 /// Returns a valid BUBBLEGUM_CANVAS on success; otherwise, returns NULL on
 /// failure.
-BUBBLEGUM_CANVAS * bg_create_canvas(
+BUBBLEGUM_API
+BUBBLEGUM_API BUBBLEGUM_CANVAS * bg_create_canvas(
 	BUBBLEGUM_CONTEXT *context,
 	int width,
 	int height);
 
-/// Resizes the BUBBLEGUM_CANVAS. Like bg_create_canvas, width and height must
+BUBBLEGUM_API
+BUBBLEGUM_API /// Resizes the BUBBLEGUM_CANVAS. Like bg_create_canvas, width and height must
 /// be greater than zero. Values are clamped to at least 1.
-void bg_resize_canvas(BUBBLEGUM_CANVAS *canvas, int width, int height);
+BUBBLEGUM_API
+BUBBLEGUM_API void bg_resize_canvas(BUBBLEGUM_CANVAS *canvas, int width, int height);
 
 /// Gets the width of the canvas.
-int bg_get_canvas_width(BUBBLEGUM_CANVAS *canvas);
+BUBBLEGUM_API
+BUBBLEGUM_API int bg_get_canvas_width(BUBBLEGUM_CANVAS *canvas);
 
 /// Gets the height of the canvas.
-int bg_get_canvas_height(BUBBLEGUM_CANVAS *canvas);
+BUBBLEGUM_API
+BUBBLEGUM_API int bg_get_canvas_height(BUBBLEGUM_CANVAS *canvas);
 
 /// Sets the canvas position. By default, it is (0, 0).\
 ///
 /// This only has an effect if being rendered into the backbuffer. If rendered
 /// into an atlas, this value is ignored.
-void bg_set_canvas_position(BUBBLEGUM_CANVAS *canvas, int x, int y);
+BUBBLEGUM_API
+BUBBLEGUM_API void bg_set_canvas_position(BUBBLEGUM_CANVAS *canvas, int x, int y);
 
 /// Gets the canvas position on the X axis.
-int bg_get_canvas_x(BUBBLEGUM_CANVAS *canvas);
+BUBBLEGUM_API
+BUBBLEGUM_API int bg_get_canvas_x(BUBBLEGUM_CANVAS *canvas);
 
 /// Gets the canvas position on the Y axis.
-int bg_get_canvas_y(BUBBLEGUM_CANVAS *canvas);
+BUBBLEGUM_API
+BUBBLEGUM_API int bg_get_canvas_y(BUBBLEGUM_CANVAS *canvas);
 
 /// Sets the constant integral scale.
 ///
 /// This is multiplied by width/height when rendering the canvas to get the
 /// rasterized width/height. This only has an effect when rendering into an
 /// atlas.
-void bg_set_canvas_scale(BUBBLEGUM_CANVAS *canvas, int value);
+BUBBLEGUM_API
+BUBBLEGUM_API void bg_set_canvas_scale(BUBBLEGUM_CANVAS *canvas, int value);
 
 /// Gets the constant integral scale.
-int bg_get_canvas_scale(BUBBLEGUM_CANVAS *canvas);
+BUBBLEGUM_API
+BUBBLEGUM_API int bg_get_canvas_scale(BUBBLEGUM_CANVAS *canvas);
 
 /// Begins populating a canvas.
 ///
 /// The current contents are discarded.
-void bg_begin_drawing(BUBBLEGUM_CANVAS *canvas);
+BUBBLEGUM_API
+BUBBLEGUM_API void bg_begin_drawing(BUBBLEGUM_CANVAS *canvas);
 
 /// Stops drawing.
-void bg_end_drawing(BUBBLEGUM_CANVAS *canvas);
+BUBBLEGUM_API
+BUBBLEGUM_API void bg_end_drawing(BUBBLEGUM_CANVAS *canvas);
 
 /// Pushes a clipping path.
-void bg_push_clip(BUBBLEGUM_CANVAS *canvas, BUBBLEGUM_PATH* path);
+BUBBLEGUM_API
+BUBBLEGUM_API void bg_push_clip(BUBBLEGUM_CANVAS *canvas, BUBBLEGUM_PATH* path);
 
 /// Pops the current clipping path.
-void bg_pop_clip(BUBBLEGUM_CANVAS *canvas);
+BUBBLEGUM_API
+BUBBLEGUM_API void bg_pop_clip(BUBBLEGUM_CANVAS *canvas);
 
 /// Pushes a transform.
-void bg_push_transform(BUBBLEGUM_CANVAS *canvas, BUBBLEGUM_TRANSFORM* transform);
+BUBBLEGUM_API
+BUBBLEGUM_API void bg_push_transform(BUBBLEGUM_CANVAS *canvas, BUBBLEGUM_TRANSFORM* transform);
 
 /// Pops the current transform.
-void bg_pop_transform(BUBBLEGUM_CANVAS *canvas);
+BUBBLEGUM_API
+BUBBLEGUM_API void bg_pop_transform(BUBBLEGUM_CANVAS *canvas);
 
 /// Pushes a group. All children elements will be rendered as if they are a
 /// single image.
 ///
 /// For example, if the group alpha is set to 0.5, it will appear as if the
 /// group as a whole is rendered at 0.5 alpha; not each element.
-void bg_push_group();
+BUBBLEGUM_API
+BUBBLEGUM_API void bg_push_group();
 
 /// Sets the group alpha.
-void bg_set_group_alpha(float alpha);
+BUBBLEGUM_API
+BUBBLEGUM_API void bg_set_group_alpha(float alpha);
 
 /// Sets the group style.
 ///
 /// Values in style that are unset when drawing a path will be inherited from
 /// style.
-void bg_set_group_style(BUBBLE_STYLE *style);
+BUBBLEGUM_API
+BUBBLEGUM_API void bg_set_group_style(BUBBLE_STYLE *style);
 
 /// Sets the group transform.
-void bg_set_group_transform(BUBBLEGUM_TRANSFORM *transform);
+BUBBLEGUM_API
+BUBBLEGUM_API void bg_set_group_transform(BUBBLEGUM_TRANSFORM *transform);
 
 /// Pops the curtrent group.
-void bg_pop_group();
+BUBBLEGUM_API
+BUBBLEGUM_API void bg_pop_group();
 
 /// Draws a path.
-void bg_draw_path(
+BUBBLEGUM_API
+BUBBLEGUM_API void bg_draw_path(
 	BUBBLEGUM_CANVAS *canvas,
 	BUBBLEGUM_PATH *path,
 	BUBBLE_STYLE *style);
 
 /// Returns true if we are currently drawing, false otherwise.
-bool bg_is_drawing(BUBBLEGUM_CANVAS *canvas);
+BUBBLEGUM_API
+BUBBLEGUM_API bool bg_is_drawing(BUBBLEGUM_CANVAS *canvas);
 
 /// Renders the canvas into the current backbuffer.
-void bg_render_canvas(BUBBLEGUM_CANVAS *canvas);
+BUBBLEGUM_API
+BUBBLEGUM_API void bg_render_canvas(BUBBLEGUM_CANVAS *canvas);
 
 /// Renders the canvas into a BUBBLEGUM_ATLAS.
-BUBBLEGUM_ATLAS_SUBIMAGE* bg_render_canvas_into_atlas(
+BUBBLEGUM_API
+BUBBLEGUM_API BUBBLEGUM_ATLAS_SUBIMAGE* bg_render_canvas_into_atlas(
 	BUBBLEGUM_CANVAS *canvas,
 	BUBBLEGUM_ATLAS *atlas);
 
