@@ -18,56 +18,42 @@
 typedef struct BUBBLEGUM_TEXTURE_BRUSH BUBBLEGUM_TEXTURE_BRUSH;
 
 /// Creates a BUBBLEGUM_TEXTURE_BRUSH for the provided context.
-BUBBLEGUM_API
-BUBBLEGUM_TEXTURE_BRUSH * bg_create_texture_brush(BUBBLEGUM_CONTEXT *context);
+BUBBLEGUM_API BUBBLEGUM_TEXTURE_BRUSH * bg_create_texture_brush(BUBBLEGUM_CONTEXT *context);
 
 /// Converts a BUBBLEGUM_BRUSH to a BUBBLEGUM_TEXTURE_BRUSH.
 ///
 /// If the conversion fails (i.e., the brush is not a linear gradient), this
 /// method returns NULL.
-BUBBLEGUM_API
-BUBBLEGUM_TEXTURE_BRUSH * bg_to_texture_brush(
+BUBBLEGUM_API BUBBLEGUM_TEXTURE_BRUSH * bg_to_texture_brush(
 	BUBBLEGUM_BRUSH *brush);
 
 /// Converts a BUBBLEGUM_TEXTURE_BRUSH to a BUBBLEGUM_BRUSH.
-BUBBLEGUM_API
-BUBBLEGUM_BRUSH * bg_from_texture_brush(BUBBLEGUM_TEXTURE_BRUSH *brush);
+BUBBLEGUM_API BUBBLEGUM_BRUSH * bg_from_texture_brush(BUBBLEGUM_TEXTURE_BRUSH *brush);
 
-BUBBLEGUM_API
-void bg_set_texture_brush_texture(
+BUBBLEGUM_API void bg_set_texture_brush_texture(
 	BUBBLEGUM_TEXTURE_BRUSH *brush,
 	int width, int height,
 	int row_stride,
 	const uint8_t *pixels);
 
-BUBBLEGUM_API
-int bg_get_texture_brush_texture_width(BUBBLEGUM_TEXTURE_BRUSH* brush);
-BUBBLEGUM_API
-int bg_get_texture_brush_texture_height(BUBBLEGUM_TEXTURE_BRUSH* brush);
-BUBBLEGUM_API
-int bg_get_texture_brush_texture_row_stride(BUBBLEGUM_TEXTURE_BRUSH* brush);
-BUBBLEGUM_API
-const uint8_t * bg_get_texture_brush_texture_pixels(BUBBLEGUM_TEXTURE_BRUSH* brush);
+BUBBLEGUM_API int bg_get_texture_brush_texture_width(BUBBLEGUM_TEXTURE_BRUSH *brush);
+BUBBLEGUM_API int bg_get_texture_brush_texture_height(BUBBLEGUM_TEXTURE_BRUSH *brush);
+BUBBLEGUM_API int bg_get_texture_brush_texture_row_stride(BUBBLEGUM_TEXTURE_BRUSH *brush);
+BUBBLEGUM_API const uint8_t * bg_get_texture_brush_texture_pixels(BUBBLEGUM_TEXTURE_BRUSH *brush);
 
-BUBBLEGUM_API
-void bg_set_texture_brush_rotation(BUBBLEGUM_TEXTURE_BRUSH* brush, float value);
-BUBBLEGUM_API
-float bg_get_texture_brush_rotation(BUBBLEGUM_TEXTURE_BRUSH* brush);
-BUBBLEGUM_API
-void bg_set_texture_brush_offset_x(BUBBLEGUM_TEXTURE_BRUSH* brush, float value);
-BUBBLEGUM_API
-float bg_get_texture_brush_offset_x(BUBBLEGUM_TEXTURE_BRUSH* brush);
-BUBBLEGUM_API
-void bg_set_texture_brush_offset_y(BUBBLEGUM_TEXTURE_BRUSH* brush, float value);
-BUBBLEGUM_API
-float bg_get_texture_brush_offset_y(BUBBLEGUM_TEXTURE_BRUSH* brush);
-BUBBLEGUM_API
-void bg_set_texture_brush_scale_x(BUBBLEGUM_TEXTURE_BRUSH* brush, float value);
-BUBBLEGUM_API
-float bg_get_texture_brush_scale_x(BUBBLEGUM_TEXTURE_BRUSH* brush);
-BUBBLEGUM_API
-void bg_set_texture_brush_scale_y(BUBBLEGUM_TEXTURE_BRUSH* brush, float value);
-BUBBLEGUM_API
-float bg_get_texture_brush_scale_y(BUBBLEGUM_TEXTURE_BRUSH* brush);
+BUBBLEGUM_API void bg_set_texture_brush_has_alpha(BUBBLEGUM_TEXTURE_BRUSH *brush, bool value);
+BUBBLEGUM_API bool bg_query_texture_brush_texture_has_alpha(BUBBLEGUM_TEXTURE_BRUSH *brush);
+BUBBLEGUM_API bool bg_get_texture_brush_has_alpha(BUBBLEGUM_TEXTURE_BRUSH *brush);
+
+BUBBLEGUM_API void bg_set_texture_brush_rotation(BUBBLEGUM_TEXTURE_BRUSH *brush, float value);
+BUBBLEGUM_API float bg_get_texture_brush_rotation(BUBBLEGUM_TEXTURE_BRUSH *brush);
+BUBBLEGUM_API void bg_set_texture_brush_offset_x(BUBBLEGUM_TEXTURE_BRUSH *brush, float value);
+BUBBLEGUM_API float bg_get_texture_brush_offset_x(BUBBLEGUM_TEXTURE_BRUSH *brush);
+BUBBLEGUM_API void bg_set_texture_brush_offset_y(BUBBLEGUM_TEXTURE_BRUSH *brush, float value);
+BUBBLEGUM_API float bg_get_texture_brush_offset_y(BUBBLEGUM_TEXTURE_BRUSH *brush);
+BUBBLEGUM_API void bg_set_texture_brush_scale_x(BUBBLEGUM_TEXTURE_BRUSH *brush, float value);
+BUBBLEGUM_API float bg_get_texture_brush_scale_x(BUBBLEGUM_TEXTURE_BRUSH *brush);
+BUBBLEGUM_API void bg_set_texture_brush_scale_y(BUBBLEGUM_TEXTURE_BRUSH *brush, float value);
+BUBBLEGUM_API float bg_get_texture_brush_scale_y(BUBBLEGUM_TEXTURE_BRUSH *brush);
 
 #endif
